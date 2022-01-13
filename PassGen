@@ -8,6 +8,7 @@ user = (os.getenv('username'))
 print(now.strftime("%m/%d/%Y %H:%M:%S\n"))
 print("Final Project Testing Code")
 
+
 class passGen:
     def __init__(self, limit):
         self.__lim = limit
@@ -24,6 +25,21 @@ class passGen:
             elif joy == 0:
                 self.__loc += secrets.choice(string.hexdigits)
         return self.__loc
+    def generateSym(self):
+        while len(self.__loc) < self.__lim:
+            joy = secrets.randbelow(5)
+            if joy == 0:
+                self.__loc += secrets.choice(string.ascii_lowercase)
+            elif joy == 1:
+                self.__loc += secrets.choice(string.digits)
+            elif joy == 2:
+                self.__loc += secrets.choice(string.ascii_uppercase)
+            elif joy == 3:
+                self.__loc += secrets.choice(string.punctuation)
+            elif joy == 4:
+                self.__loc += secrets.choice(string.hexdigits)
+        return self.__loc
+
 
 def main():
     CLimit = int(input("\nEnter the minimum number of characters that are needed\nIf there is no minimum enter 0: "))
@@ -41,3 +57,6 @@ def main():
     reDoIt = input("Would you like to try again? Press 'Enter' to exit: ")
     if reDoIt:
         main()
+
+
+main()
