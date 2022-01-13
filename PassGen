@@ -1,0 +1,9 @@
+import datetime
+import os
+
+# Final Project Testing Code
+now = datetime.datetime.now()
+print(os.environ['USERPROFILE'])
+user = (os.getenv('username'))
+print(now.strftime("%m/%d/%Y %H:%M:%S\n"))
+print("Final Project Testing Code")
