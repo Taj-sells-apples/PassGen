@@ -8,6 +8,23 @@ user = (os.getenv('username'))
 print(now.strftime("%m/%d/%Y %H:%M:%S\n"))
 print("Final Project Testing Code")
 
+class passGen:
+    def __init__(self, limit):
+        self.__lim = limit
+        self.__loc = ""
+    def generate(self):
+        while (len(self.__loc) < self.__lim) or (not self.__loc):
+            joy = secrets.randbelow(4)
+            if joy == 1:
+                self.__loc += secrets.choice(string.ascii_lowercase)
+            elif joy == 2:
+                self.__loc += secrets.choice(string.digits)
+            elif joy == 3:
+                self.__loc += secrets.choice(string.ascii_uppercase)
+            elif joy == 0:
+                self.__loc += secrets.choice(string.hexdigits)
+        return self.__loc
+
 def main():
     CLimit = int(input("\nEnter the minimum number of characters that are needed\nIf there is no minimum enter 0: "))
     if CLimit:
