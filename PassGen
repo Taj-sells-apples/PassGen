@@ -7,3 +7,20 @@ print(os.environ['USERPROFILE'])
 user = (os.getenv('username'))
 print(now.strftime("%m/%d/%Y %H:%M:%S\n"))
 print("Final Project Testing Code")
+
+def main():
+    CLimit = int(input("\nEnter the minimum number of characters that are needed\nIf there is no minimum enter 0: "))
+    if CLimit:
+        print(f"Your character limit has been set to {CLimit} approx.")
+    else:
+        CLimit = random.randint(10, 25)
+        print(f"Your character limit has been set to {CLimit} approx.")
+    CAsk = input("Type 'Yes' in any language if symbols are allowed, Leave blank if not: ")
+    g = passGen(CLimit)
+    if CAsk:
+        print(f"Your password has been generated\n\n--*--{g.generateSym()}--*--\n\n")
+    else:
+        print(f"Your password has been generated\n\n--*--{g.generate()}--*--\n\n")
+    reDoIt = input("Would you like to try again? Press 'Enter' to exit: ")
+    if reDoIt:
+        main()
